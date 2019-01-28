@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server for J & M roofing co.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon --legacy-watch server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronaldpedid/jmroofingco.git"
+  },
+  "keywords": [
+    "roofing"
+  ],
+  "author": "Ronald Pedid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ronaldpedid/jmroofingco/issues"
+  },
+  "homepage": "https://github.com/ronaldpedid/jmroofingco#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "sendgrid": "^5.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
