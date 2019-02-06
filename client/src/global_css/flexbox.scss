@@ -1,0 +1,29 @@
+.flex{
+  display: flex;
+}
+
+@mixin display($flex){
+  @if $flex {
+    @include flex;
+  } @else {
+    display: block;
+  }
+}
+
+@mixin box($width, $height, $background){
+  width: $width;
+  height: $height;
+  background-color: $background;
+}
+
+@mixin media($width){
+  @media only screen and (max-width: $width) {
+    @content 
+  }
+}
+
+@mixin keyframes($name){
+  @keyframes #{$name} {
+    @content
+  }
+}

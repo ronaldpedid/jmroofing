@@ -1,4 +1,7 @@
-@import '../src/global_css/grid.scss';
+@import '../src/global_css/flexbox.scss';
 @import '../src/global_css/reset.scss';
 
-
+body{
+  background-color: white;
+  overflow-x: hidden;
+}
