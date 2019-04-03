@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styles from '../../index.scss';
-import { Button } from '../button/Button';
 
 export class ContentBox extends Component {
   constructor(props) {
@@ -11,7 +10,7 @@ export class ContentBox extends Component {
   }
   render() {
     return (
-      <div className={styles.contentBox}>
+      <div className={this.props.className}>
         {this.props.children}
       </div>
     )
@@ -22,14 +21,14 @@ export class BoxRow extends Component {
   render() {
     return (
       <div className={styles.contentRow}>
-        <ContentBox>IMAGE COMING SOON</ContentBox>
-        <ContentBox>
-          <h5>GAUREETEE #1</h5>
-          <h2>Experience Matters</h2>
-          <p>Our craftmenship speaks for itself. So does our XX years of service to NWA.</p>
-          <Button className={styles.transButton}>
+        <ContentBox className={styles.bgCell1}></ContentBox>
+        <ContentBox className={styles.blueBox}>
+          <h3 className={styles.contentHat}>GAUREETEE #1</h3>
+          <h2 className={styles.contentHeader}>Experience Matters</h2>
+          <p className={styles.contentTag}>Our craftmenship speaks for itself. So does our XX years of service to NWA.</p>
+          <a className={styles.infoButton}>
             See More
-          </Button>
+          </a>
         </ContentBox>
       </div>
     )
@@ -40,13 +39,13 @@ export class BoxRowReverse extends Component {
   render() {
     return (
       <div className={styles.contentRow}>
-        <ContentBox>
-          <h2>Thinking about upgrading your skylight?</h2>
-          <p>We'll handle installing, you handle the cloud watching.</p>
-          <Button className={styles.transButton}>
-            Explore Services </Button>
+        <ContentBox className={styles.greenBox}>
+          <h2 className={styles.contentHeader}>Thinking about upgrading your skylight?</h2>
+          <p className={styles.contentTag}>We'll handle installing, you handle the cloud watching.</p>
+          <a className={styles.infoButton}>
+            Explore Services </a>
         </ContentBox>
-        <ContentBox>IMAGE COMING SOON</ContentBox>
+        <ContentBox className={styles.bgCell2}></ContentBox>
 
       </div>
     )
@@ -56,10 +55,13 @@ export class BoxRowReverse extends Component {
 export class BoxTestimonials extends Component {
   render() {
     return (
-      <div className={styles.contentRow}>
+      <section className={styles.contentBigBoxTest}>
+
         <h3>Customer Review</h3>
         <p> " some testimonial "</p>
-      </div>
+
+      </section>
+
     )
   }
 }

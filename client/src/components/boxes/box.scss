@@ -1,7 +1,6 @@
 .contentBox{
   width: 50%;
-  height: 400px;
-  border: 1px solid black;
+  height: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -9,7 +8,85 @@
   align-items: center;
 }
 
+.contentHat{
+  font-size: 1.2rem;
+  margin-bottom: .5rem;
+}
+
+.contentBigBox{
+  @extend .contentBox;
+  width: 100%;
+}
+
+.contentBigBoxTest{
+  @extend .contentBigBox;
+  height: 250px;
+  background-color: $offColor;
+}
+
+.contentBigBoxFooter{
+  @extend .contentBox;
+  width: 100%;
+  height: 500px;
+}
+
+.contentHero{
+  @extend .contentBigBox;
+  height: 900px;
+  background-image: url('https://res.cloudinary.com/the-sage-mages/image/upload/v1554313086/jmroofing/1landingroof.png');
+  background-size: cover; 
+  text-align: center;
+
+}
+.contentTag{
+  margin: 1rem 0;
+  font-size: 1.4rem;
+
+}
+.contentFooter{
+  @extend .contentBigBox;
+  height: 200px;
+ 
+}
 .contentRow{
   display: flex;
   flex-direction: row;
+}
+
+.footerRow{
+  @extend .contentRow;
+  font-size: 1.2rem;
+  width: 50%;
+  align-items: center;
+  justify-content: space-around;
+  color: $offColor;
+}
+
+.infoRow{
+  @extend .footerRow;
+  margin-top: 19rem;
+  font-size: 1rem;
+}
+
+.contentHeader{
+  font-size: 2.2rem;
+}
+
+.blueBox{
+  @extend .contentBox;
+  background-color: $secondaryColor;
+}
+
+.greenBox{
+  @extend .contentBox;
+  background-color: $secondaryOffColor;
+}
+
+.bgCell1{
+  @extend .contentBox;
+  background-image: url('https://res.cloudinary.com/the-sage-mages/image/upload/v1554313084/jmroofing/2landingservice.png');
+}
+.bgCell2{
+  @extend .contentBox;
+  background-image: url('https://res.cloudinary.com/the-sage-mages/image/upload/v1554313086/jmroofing/3landingskylight.png');
 }

@@ -5,12 +5,12 @@ import styles from '../../index.scss';
 export default class Footer extends Component {
   render() {
     return (
-      <footer className={styles.footer}>
-        <div className={styles.contact}>
-          <h3><a>479-555-4949</a></h3>
-          <h2>info@jmroofing.com</h2>
+      <footer className={styles.contentBigBoxFooter}>
+        <div className={styles.footerRow}>
+          <a className={styles.hyperline} href="tel:479-555-4949">479-555-4949</a>
+          <a className={styles.hyperline} href="mailto:info@jmroofing.com">info@jmroofing.com</a>
         </div>
-        <div className={styles.info}>
+        <div className={styles.infoRow}>
           <a>Privacy Policy</a>
           <a>Terms of Service</a>
           <a>Copyright 2019</a>

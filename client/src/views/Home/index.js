@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './home.scss';
-import Lander from '../../components/landing/Lander';
+import { Lander, LanderFooter } from '../../components/landing/Lander';
 import { BoxRow, BoxTestimonials, BoxRowReverse } from '../../components/boxes/Box';
 
 export class HomeView extends Component {
@@ -9,6 +9,7 @@ export class HomeView extends Component {
     return (
       <div className={styles.homeWrapper}>
         <Lander />
+        <LanderFooter />
         <BoxRow />
         <BoxTestimonials />
         <BoxRowReverse />

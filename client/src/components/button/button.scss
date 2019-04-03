@@ -1,6 +1,29 @@
 .transButton{
   max-width: 150px;
   width: 100%;
-  padding: 1rem;
   background: transparent;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.heroButton{
+@extend .transButton;
+border: 1px solid $primaryColor;
+justify-content: space-around;
+margin: 1rem;
+}
+
+.infoButton{
+  @extend .transButton;
+  border: 1px solid $offColor;
+  color: $offColor;
+  margin: 1rem 0;
+
+}
+
+.buttonRow{
+  @extend .flex;
+  justify-content: center;
 }
