@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { HomeView } from './views/Home';
 import styles from './index.scss';
 import { ContactRender } from './views/Contact/cForm';
+import Footer from './components/footer/Footer';
 
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
             <Route exact path="/" component={HomeView} />
             <Route path="/contact" component={ContactRender} />
           </Switch>
+          <Footer />
         </div>
       </BrowserRouter>
     )
