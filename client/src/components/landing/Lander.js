@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './lander.scss';
+import styles from '../../index.scss';
 import { Button } from '../button/Button';
 
 export default class Lander extends Component {

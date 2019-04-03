@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './box.scss';
+import styles from '../../index.scss';
 import { Button } from '../button/Button';
 
 export class ContentBox extends Component {
@@ -11,7 +11,7 @@ export class ContentBox extends Component {
   }
   render() {
     return (
-      <div className={this.props.className}>
+      <div className={styles.contentBox}>
         {this.props.children}
       </div>
     )

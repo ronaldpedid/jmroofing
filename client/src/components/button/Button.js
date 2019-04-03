@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import styles from '../../index.scss';
+
 
 export class Button extends Component {
   constructor(props) {

@@ -1,7 +1,12 @@
 @import '../src/global_css/flexbox.scss';
 @import '../src/global_css/reset.scss';
+@import '../src/components/boxes/box.scss';
+@import '../src/components/button/button.scss';
+@import '../src/components/footer/footer.scss';
+@import '../src/components/landing/lander.scss';
+@import '../src/components/boxes/box.scss';
 
 body{
-  background-color: white;
+  background-color: olivedrab;
   overflow-x: hidden;
 }
