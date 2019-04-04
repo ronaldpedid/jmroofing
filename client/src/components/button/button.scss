@@ -1,5 +1,5 @@
 .transButton{
-  max-width: 150px;
+  max-width: 200px;
   width: 100%;
   background: transparent;
   text-align: center;
@@ -10,18 +10,29 @@
 
 .heroButton{
 @extend .transButton;
-border: 1px solid $primaryColor;
+border: 3px solid $primaryColor;
 justify-content: space-around;
 margin: 1rem;
+&:hover{
+  border: 3px solid $offColor;
+  background-color: $primaryColor;
+  color: $offColor;
+}
 }
 
 .infoButton{
   @extend .transButton;
-  border: 1px solid $offColor;
+  border: 3px solid $offColor;
   color: $offColor;
   margin: 1rem 0;
-
+  &:hover{
+   border: 3px solid $offColor ;
+  background-color: $offColor;
+  color: $primaryColor;
+  }
 }
+
+
 
 .buttonRow{
   @extend .flex;

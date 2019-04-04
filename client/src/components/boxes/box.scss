@@ -32,7 +32,7 @@
 
 .contentHero{
   @extend .contentBigBox;
-  height: 900px;
+  height: 700px;
   background-image: url('https://res.cloudinary.com/the-sage-mages/image/upload/v1554313086/jmroofing/1landingroof.png');
   background-size: cover; 
   text-align: center;
@@ -68,6 +68,9 @@
   font-size: 1rem;
 }
 
+.heroHeader{
+  font-size: 4rem;
+}
 .contentHeader{
   font-size: 2.2rem;
 }
@@ -75,6 +78,12 @@
 .blueBox{
   @extend .contentBox;
   background-color: $secondaryColor;
+}
+
+.aboutBox{
+  @extend .contentBox;
+  background-image: url('https://res.cloudinary.com/the-sage-mages/image/upload/v1554395088/jmroofing/jnm.jpg');
+  background-size: cover;
 }
 
 .greenBox{

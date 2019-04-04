@@ -4,9 +4,16 @@ import axios from 'axios';
 class ContactForm extends Component {
   render() {
     const {
-      name,
+      firstName,
+      lastName,
       email,
       phone,
+      street,
+      city,
+      projectType,
+      projectDesc,
+      commPref,
+      budget,
       message,
       handleChange,
       handleSubmit
@@ -14,10 +21,18 @@ class ContactForm extends Component {
     return (
       <div className='formWrapper'>
         <form onSubmit={handleSubmit}>
-          <input name='name' type='text' onChange={handleChange} value={name} />
+          <input name='firstName' type='text' onChange={handleChange} value={firstName} />
+          <input name='lastName' type='text' onChange={handleChange} value={lastName} />
+          <input name='street' type='text' onChange={handleChange} value={street} />
+          <input name='city' type='text' onChange={handleChange} value={city} />
+          <select name='projectType' onChange={handleChange} value={projectType || 'Option 1'}>
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+          </select>
           <input name='email' type='email' onChange={handleChange} value={email} />
           <input name='phone' type='number' onChange={handleChange} value={phone} />
-          <input name='message' type='text' onChange={handleChange} value={message} />
+          <textarea name='message' onChange={handleChange} value={message} rows='4' />
           <button type='submit'>Send</button>
         </form>
       </div>
@@ -26,11 +41,15 @@ class ContactForm extends Component {
 }
 
 
-export class ContactRender extends Component {
+export class ContactView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      firstName: '',
+      lastName: '',
+      street: '',
+      city: '',
+      projectType: '',
       email: '',
       phone: '',
       message: ''
@@ -46,12 +65,20 @@ export class ContactRender extends Component {
 
   async submitForm() {
     const {
-      name,
+      firstName,
+      lastName,
+      street,
+      city,
+      projectType,
       email,
       phone,
       message } = this.state;
     const form = await axios.post('/api/contact/send', {
-      name,
+      firstName,
+      lastName,
+      street,
+      city,
+      projectType,
       email,
       phone,
       message
@@ -69,7 +96,11 @@ export class ContactRender extends Component {
   }
   render() {
     const {
-      name,
+      firstName,
+      lastName,
+      street,
+      city,
+      projectType,
       email,
       phone,
       message
@@ -77,7 +108,11 @@ export class ContactRender extends Component {
     return (
       <div>
         <ContactForm
-          name={name}
+          firstName={firstName}
+          lastName={lastName}
+          street={street}
+          city={city}
+          projectType={projectType}
           email={email}
           phone={phone}
           message={message}

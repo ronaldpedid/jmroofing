@@ -64,7 +64,8 @@ module.exports = {
     port: 8080,
     public: 'dev.jmroofing.com',
     publicPath: '/public/',
-    hot: true
+    hot: true,
+    historyApiFallback: true
   },
   plugins: [
     // htmlPlugin

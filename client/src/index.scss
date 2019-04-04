@@ -6,6 +6,7 @@
 @import '../src/components/footer/footer.scss';
 @import '../src/components/landing/lander.scss';
 @import '../src/components/boxes/box.scss';
+@import '../src/components/navigation/navigation.scss';
 
 html{
   font-family: $siteFont;
@@ -16,4 +17,19 @@ body{
   background-color: $primaryColor;
   overflow-x: hidden;
 
+}
+
+
+a{
+  text-decoration: none;
+  &:active{
+    color: $accentColor;
+  }
+  &:visited{
+    color: $offColor;
+  }
+}
+.thinText{
+  font-weight: 200;
+  font-size: 1.8rem;
 }
