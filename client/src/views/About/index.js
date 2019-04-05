@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Lander, LanderFooter, AboutLander } from '../../components/landing/Lander';
-import { BoxRow, BoxTestimonials, BoxRowReverse } from '../../components/boxes/Box';
+import { AboutLander } from '../../components/landing/Lander';
+import { BoxRowAbout1, BoxRowAbout2, BoxCallout } from '../../components/boxes/Box';
 
 export class AboutView extends Component {
 
@@ -8,6 +8,9 @@ export class AboutView extends Component {
     return (
       <div>
         <AboutLander />
+        <BoxRowAbout1 />
+        <BoxRowAbout2 />
+        <BoxCallout />
       </div>
     )
   }

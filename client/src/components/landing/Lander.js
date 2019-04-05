@@ -35,7 +35,7 @@ export class AboutLander extends Component {
   render() {
     return (
       <div className={styles.contentRow}>
-        <ContentBox className={styles.contentBox}>
+        <ContentBox className={styles.blueBox}>
           <h2 className={styles.contentHeader}>Locals serving locals.</h2>
           <p className={styles.contentTag}>Small paragraph about what</p>
           <a className={styles.infoButton}>
