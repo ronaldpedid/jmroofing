@@ -13,6 +13,7 @@
 border: 3px solid $primaryColor;
 justify-content: space-around;
 margin: 1rem;
+color: $primaryColor;
 &:hover{
   border: 3px solid $offColor;
   background-color: $primaryColor;

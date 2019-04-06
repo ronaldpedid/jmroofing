@@ -7,6 +7,7 @@
 @import '../src/components/landing/lander.scss';
 @import '../src/components/boxes/box.scss';
 @import '../src/components/navigation/navigation.scss';
+@import '../src/views/Contact/form.scss';
 
 html{
   font-family: $siteFont;
@@ -16,12 +17,11 @@ body{
   font-size: 10px;
   background-color: $primaryColor;
   overflow-x: hidden;
-
 }
-
 
 a{
   text-decoration: none;
+  color: $offColor;
   &:active{
     color: $accentColor;
   }
@@ -29,6 +29,7 @@ a{
     color: $offColor;
   }
 }
+
 .thinText{
   font-weight: 200;
   font-size: 1.8rem;

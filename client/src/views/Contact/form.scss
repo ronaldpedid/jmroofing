@@ -1,0 +1,50 @@
+.formWrapper{
+  @extend .flex;
+  justify-content: center;
+  background-color: $secondaryColor;
+  font-size: 1.4rem;
+}
+
+.formGroup{
+  @extend .flex;
+  justify-content: center;
+}
+
+.formGroupRow{
+  @extend .formGroup;
+  flex-direction: row;
+}
+
+.formGroupCol{
+  @extend .formGroup;
+  flex-direction: column;
+}
+
+input{
+  width: 100%;
+}
+
+.selectGroup{
+  @extend .flex;
+  justify-content: center;
+  
+}
+.selectGroup select{
+  @extend .flex;
+  justify-content: center;
+  width: 150px;
+  height: 40px;
+  font-size: 1.4rem;
+  margin: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  // padding: 2px 2px 2px 2px;
+  border: none;
+  background: $offColor url("https://res.cloudinary.com/the-sage-mages/image/upload/v1554495097/jmroofing/arrowyel.png") no-repeat 120px center;
+
+}
+
+.option{
+  background-color: #fff;
+}

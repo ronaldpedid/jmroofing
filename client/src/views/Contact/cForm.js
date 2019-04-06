@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import styles from '../../index.scss';
 
 class ContactForm extends Component {
   render() {
@@ -19,17 +20,33 @@ class ContactForm extends Component {
       handleSubmit
     } = this.props;
     return (
-      <div className='formWrapper'>
+      <div className={styles.formWrapper}>
         <form onSubmit={handleSubmit}>
-          <input name='firstName' type='text' onChange={handleChange} value={firstName} />
-          <input name='lastName' type='text' onChange={handleChange} value={lastName} />
-          <input name='street' type='text' onChange={handleChange} value={street} />
-          <input name='city' type='text' onChange={handleChange} value={city} />
-          <select name='projectType' onChange={handleChange} value={projectType || 'Option 1'}>
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-          </select>
+          <div className={styles.formGroupRow}>
+
+            <div className={styles.formGroupCol}>
+              <label>*Name</label>
+              <input className={styles.inputField} name='firstName' type='text' onChange={handleChange} value={firstName} />
+              <input className={styles.inputField} name='lastName' type='text' onChange={handleChange} value={lastName} />
+            </div>
+
+
+
+
+            <div className={styles.formGroupCol}>
+              <label>*Address</label>
+              <input className={styles.inputField} name='street' type='text' onChange={handleChange} value={street} />
+              <input className={styles.inputField} name='city' type='text' onChange={handleChange} value={city} />
+            </div>
+          </div>
+          <div className={styles.selectGroup}>
+            <select name='projectType' onChange={handleChange} value={projectType || 'Option 1'}>
+              <option className={styles.option}>Option 1</option>
+              <option className={styles.option}>Option 2</option>
+              <option className={styles.option}>Option 3</option>
+            </select>
+          </div>
+
           <input name='email' type='email' onChange={handleChange} value={email} />
           <input name='phone' type='number' onChange={handleChange} value={phone} />
           <textarea name='message' onChange={handleChange} value={message} rows='4' />

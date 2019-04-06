@@ -6,12 +6,12 @@ export class AboutView extends Component {
 
   render() {
     return (
-      <div>
+      <section>
         <AboutLander />
         <BoxRowAbout1 />
         <BoxRowAbout2 />
         <BoxCallout />
-      </div>
+      </section>
     )
   }
 }
