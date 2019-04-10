@@ -60,12 +60,21 @@ async function sendContactForm(req, res) {
       <img class="header" src="http://hyde-development.com/061517/wp-content/uploads/2017/05/placeholder-Lyndale.jpg" />
       <h3 class="headline">Contact Details</h3>
             <ul class="ul">
-              <li class="li">${req.body.name}</li>
+              <li class="li">${req.body.firstName}</li>
+              <li class="li">${req.body.firstName}</li>
+              <li class="li">${req.body.lastName}</li>
+              <li class="li">${req.body.street}</li>
+              <li class="li">${req.body.city}</li>
+              <li class="li">${req.body.budget}</li>
+              <li class="li">${req.body.startDate}</li>
+              <li class="li">${req.body.projectType}</li>
               <li class="li">${req.body.email}</li>
+              <li class="li">${req.body.timeToReach}</li>
+              <li class="li">${req.body.commPref}</li>
               <li class="li">${newPhoNum}</li>
             </ul>
             <h3 class="headline">Message</h3>
-            <p>${req.body.message}</p>`
+            <p>${req.body.projectDesc}</p>`
     };
     console.log(msg);
     sgMail.send(msg);

@@ -23,7 +23,21 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.css$/,
+        include: /node_modules/,
+        use: [
+          "style-loader",
+          {
+            loader: 'css-loader',
+            options: {
+              modules: false
+            }
+          }
+        ]
+      },
+      {
+        test: /\.css|\.scss$/,
+        include: path.join(__dirname, 'src'),
         use: [
           { loader: "style-loader" },
           {

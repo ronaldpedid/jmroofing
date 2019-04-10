@@ -2,7 +2,6 @@ import React from 'react';
 import App from './App';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-
 function startup() {
   let targetNode = document.getElementById('root');
   Promise.resolve(initializeClient(targetNode))

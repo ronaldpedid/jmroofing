@@ -7,8 +7,7 @@ import { Navigation } from './components/navigation/navigation';
 import { AboutView } from './views/About';
 
 const NoMatch = ({ location }) => (
-  <div className={styles.errorPage}>
-    <img src={errImg} alt="404 not found" />
+  <div>
     <h3>Whoops! Page not found.</h3>
   </div>
 )

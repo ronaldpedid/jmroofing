@@ -13,29 +13,41 @@
 .formGroupRow{
   @extend .formGroup;
   flex-direction: row;
+  align-self: center;
 }
 
 .formGroupCol{
   @extend .formGroup;
   flex-direction: column;
+
+  label{
+    text-align: center;
+  }
 }
 
-input{
-  width: 100%;
+.datePicker{
+  width: 50%;
+  align-self: center;
+  padding: 1em;
 }
-
 .selectGroup{
+  width: 100%;
   @extend .flex;
-  justify-content: center;
-  
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1.4rem;
+
+
 }
+
 .selectGroup select{
   @extend .flex;
   justify-content: center;
   width: 150px;
   height: 40px;
   font-size: 1.4rem;
-  margin: 1rem;
+  margin: 1.5rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -44,6 +56,19 @@ input{
   background: $offColor url("https://res.cloudinary.com/the-sage-mages/image/upload/v1554495097/jmroofing/arrowyel.png") no-repeat 120px center;
 
 }
+
+.inputField{
+  padding: .5rem;
+  margin: 1em;
+  font-size: 1.4rem;
+}
+
+.inputField1{
+  @extend .inputField;
+  align-self: center;
+  
+}
+
 
 .option{
   background-color: #fff;

@@ -14,16 +14,13 @@ app.use(require('./middleware/health')());
 app.use(bodyParser()); //needed to get access to req.body
 app.use(bodyParser.urlencoded({ extended: true })); //needed to resolve deprecation error +  encodes url data
 
-
 // Everything else to index - this is needed for react-router/browser-router to do it's thing.
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './index.html'));
 });
 
-
 //Connecting our API Routes to our app
 require('./api/routes/')(app);
-
 
 //app is listening always
 app.listen(PORT);
