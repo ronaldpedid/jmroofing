@@ -33,6 +33,10 @@ color: $primaryColor;
   }
 }
 
+.submitButton{
+  @extend .heroButton;
+
+}
 
 .buttonRow{
   @extend .flex;

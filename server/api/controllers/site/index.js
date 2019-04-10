@@ -29,18 +29,24 @@ async function sendContactForm(req, res) {
       return null
     }
 
+
     const newPhoNum = formatPhoneNumber(req.body.phone);
+    console.log(req.body);
     const msg = {
-      to: 'ronaldpedid@live.com',
+      to: 'elementfayt@gmail.com',
       from: req.body.email,
       subject: 'Hello from Node!',
-      text: req.body.message,
+      text: req.body.projectType,
       html:
         `<style>
         .header{
           height: 600px;
           width: 600px;
           margin: 0 auto;
+        }
+
+        .headline-logo{
+          font-size: 24px;
         }
 
         .headline{
@@ -57,24 +63,25 @@ async function sendContactForm(req, res) {
           font-size: 18px;
         }
       </style>
-      <img class="header" src="http://hyde-development.com/061517/wp-content/uploads/2017/05/placeholder-Lyndale.jpg" />
-      <h3 class="headline">Contact Details</h3>
+      <h1 class="headline-logo">JM Roofing LLC.</h1>
+      <h3 class="headline">Personal Details</h3>
+        <ul class="ul">
+          <li class="li">Name: ${req.body.firstName} ${req.body.lastName}</li>
+          <li class="li">Address: ${req.body.street} ${req.body.city}</li>
+          <li class="li">Email: ${req.body.email}</li>
+          <li class="li">Phone Number: ${newPhoNum}</li>
+          <li class="li">Best Time to Reach: ${req.body.timeToReach}</li>
+          <li class="li">Communitcation Pref: ${req.body.commPref}</li>
+        </ul>
+      <h3 class="headline">Work Details</h3>
             <ul class="ul">
-              <li class="li">${req.body.firstName}</li>
-              <li class="li">${req.body.firstName}</li>
-              <li class="li">${req.body.lastName}</li>
-              <li class="li">${req.body.street}</li>
-              <li class="li">${req.body.city}</li>
-              <li class="li">${req.body.budget}</li>
-              <li class="li">${req.body.startDate}</li>
-              <li class="li">${req.body.projectType}</li>
-              <li class="li">${req.body.email}</li>
-              <li class="li">${req.body.timeToReach}</li>
-              <li class="li">${req.body.commPref}</li>
-              <li class="li">${newPhoNum}</li>
-            </ul>
-            <h3 class="headline">Message</h3>
-            <p>${req.body.projectDesc}</p>`
+              <li class="li">Budget: $ ${req.body.budget}</li>
+              <li class="li">Start Date: ${req.body.startDate}</li>
+              <li class="li">Project Type: ${req.body.projectType}</li>
+              <li class="li">Project Description: ${req.body.projectDesc}</li>
+            </ul>`
+
+
     };
     console.log(msg);
     sgMail.send(msg);

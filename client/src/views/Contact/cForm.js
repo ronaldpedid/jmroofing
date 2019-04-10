@@ -8,18 +8,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 class ContactForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      startDate: new Date()
-    };
-    this.handleDate = this.handleDate.bind(this);
-
-  }
-  handleDate(e) {
-    console.log(e);
-    this.setState({ startDate: e });
-  }
   render() {
     const {
       firstName,
@@ -32,8 +20,10 @@ class ContactForm extends Component {
       budget,
       projectDesc,
       commPref,
+      startDate,
       handleChange,
       handleSubmit,
+      handleDate,
       timeToReach,
     } = this.props;
     return (
@@ -51,37 +41,53 @@ class ContactForm extends Component {
               <input className={styles.inputField} name='street' type='text' placeholder='Street' onChange={handleChange} value={street} />
               <input className={styles.inputField} name='city' type='text' placeholder='City' onChange={handleChange} value={city} />
             </div>
+
+          </div>
+          <div className={styles.formGroupRow}>
+            <div className={styles.formGroupCol}>
+              <label>*Phone Number</label>
+              <input className={styles.inputField1} name='phone' type='tel' onChange={handleChange} value={phone} placeholder="555-555-5555" />
+            </div>
+            <div className={styles.formGroupCol}>
+              <label>*Email</label>
+              <input className={styles.inputField1} name='email' type='email' onChange={handleChange} value={email} placeholder="me@example.com" />
+
+            </div>
           </div>
 
           <div className={styles.formGroupRow}>
-            <div className={styles.selectGroup}>
-              <label>Type of Project</label>
-              <select name='projectType' onChange={handleChange} value={projectType || 'Option 1'}>
-                <option className={styles.option}>Option 1</option>
-                <option className={styles.option}>Option 2</option>
-                <option className={styles.option}>Option 3</option>
-              </select>
+
+
+            <div className={styles.formGroupCol}>
+              <label>Estimated Budget</label>
+              <input className={styles.inputField1} name='budget' type='number' placeholder="$" onChange={handleChange} value={budget} />
             </div>
 
-            <div className={styles.selectGroup}>
-              <label>Start Date</label>
-              <DatePicker
-                className={styles.inputField1}
-                name='startDate'
-                selected={this.state.startDate}
-                onChange={this.handleDate}
-                value={this.startDate}
-              />
-            </div>
           </div>
           <div className={styles.formGroupCol}>
             <label>Project Description</label>
             <textarea name='projectDesc' onChange={handleChange} value={projectDesc} rows='6' />
           </div>
 
-          <div className={styles.formGroupCol}>
-            <label>Estimated Budget</label>
-            <input className={styles.inputField1} name='budget' type='number' placeholder="$" onChange={handleChange} value={budget} />
+          <div className={styles.selectGroup}>
+            <label>Type of Project</label>
+            <select name='projectType' onChange={handleChange} value={projectType}>
+              <option className={styles.option}>Select One</option>
+              <option className={styles.option}>Option 1</option>
+              <option className={styles.option}>Option 2</option>
+              <option className={styles.option}>Option 3</option>
+            </select>
+          </div>
+
+          <div className={styles.selectGroup}>
+            <label>Start Date</label>
+            <DatePicker
+              className={styles.datePicker}
+              name='startDate'
+              selected={this.props.startDate}
+              onChange={handleDate}
+              value={startDate}
+            />
           </div>
 
           <div className={styles.formGroupRow}>
@@ -90,6 +96,7 @@ class ContactForm extends Component {
             <div className={styles.selectGroup}>
               <label>Communication Preference</label>
               <select className={styles.selector} name='commPref' onChange={handleChange} value={commPref}>
+                <option className={styles.option}>Select One</option>
                 <option className={styles.option}>Call</option>
                 <option className={styles.option}>Text</option>
                 <option className={styles.option}>Email</option>
@@ -98,27 +105,18 @@ class ContactForm extends Component {
 
             <div className={styles.selectGroup}>
               <label>Best Time to Reach You</label>
-              <select className={styles.selector} name='timeToReach' onChange={handleChange} value={timeToReach || 'Morning'}>
+              <select className={styles.selector} name='timeToReach' onChange={handleChange} value={timeToReach}>
+                <option className={styles.option}>Select One</option>
                 <option className={styles.option}>Morning</option>
                 <option className={styles.option}>Afternoon</option>
                 <option className={styles.option}>Evening</option>
               </select>
             </div>
           </div>
+
           <div className={styles.formGroupRow}>
-            <div className={styles.formGroupCol}>
-              <label>Phone Number</label>
-              <input className={styles.inputField1} name='phone' type='tel' onChange={handleChange} pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value={phone} placeholder="555-555-5555" />
-            </div>
-            <div className={styles.formGroupCol}>
-              <label>Email</label>
-              <input className={styles.inputField1} name='email' type='email' onChange={handleChange} value={email} placeholder="me@example.com" />
-            </div>
+            <button className={styles.submitButton} type='submit'>Send</button>
           </div>
-
-
-
-          <button type='submit'>Send</button>
         </form>
       </div>
     )
@@ -137,21 +135,27 @@ export class ContactView extends Component {
       projectType: '',
       email: '',
       phone: '',
-      message: '',
       projectDesc: '',
-      startDate: '',
+      startDate: new Date(),
       timeToReach: '',
       commPref: '',
+      budget: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDate = this.handleDate.bind(this);
+
   }
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  handleDate(e) {
+    console.log(e);
+    this.setState({ startDate: e });
+  }
   async submitForm() {
     const {
       firstName,
@@ -159,22 +163,27 @@ export class ContactView extends Component {
       street,
       city,
       projectType,
+      projectDesc,
+      startDate,
       email,
       phone,
       commPref,
-      startDate,
-      message } = this.state;
+      timeToReach,
+      budget
+    } = this.state;
     const form = await axios.post('/api/contact/send', {
       firstName,
       lastName,
       street,
       city,
       projectType,
+      projectDesc,
       startDate,
       email,
       phone,
       commPref,
-      message
+      timeToReach,
+      budget
     }).catch((error) => {
       const response = error.response;
       console.log(response.data.errors);
@@ -194,12 +203,13 @@ export class ContactView extends Component {
       street,
       city,
       projectType,
-      startDate,
-      timeToReach,
       commPref,
+      startDate,
+      projectDesc,
       email,
       phone,
-      message
+      budget,
+      timeToReach
     } = this.state;
     return (
       <div>
@@ -209,9 +219,10 @@ export class ContactView extends Component {
           street={street}
           city={city}
           projectType={projectType}
+          projectDesc={projectDesc}
           email={email}
           phone={phone}
-          message={message}
+          budget={budget}
           timeToReach={timeToReach}
           startDate={startDate}
           commPref={commPref}

@@ -3,6 +3,7 @@
   justify-content: center;
   background-color: $secondaryColor;
   font-size: 1.4rem;
+  padding-top: 1.6rem;
 }
 
 .formGroup{
@@ -36,7 +37,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin: 1.4rem;
+  margin-top: 1rem;
 
 
 }
@@ -44,22 +45,24 @@
 .selectGroup select{
   @extend .flex;
   justify-content: center;
-  width: 150px;
+  width: 90%;
   height: 40px;
-  font-size: 1.4rem;
-  margin: 1.5rem;
+  font-size: 1.2rem;
+  margin: .5rem;
+  margin-bottom: 1.2rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  // padding: 2px 2px 2px 2px;
+  padding-left: .2rem;
   border: none;
-  background: $offColor url("https://res.cloudinary.com/the-sage-mages/image/upload/v1554495097/jmroofing/arrowyel.png") no-repeat 120px center;
+  background: $offColor url("https://res.cloudinary.com/the-sage-mages/image/upload/v1554495097/jmroofing/arrowyel.png") no-repeat 100% center;
+  background-size: contain;
 
 }
 
 .inputField{
   padding: .5rem;
-  margin: 1em;
+  margin: .5em;
   font-size: 1.4rem;
 }
 
@@ -69,6 +72,21 @@
   
 }
 
+.datePicker{
+  @extend .inputField1;
+  width: 100%;
+  text-align: center;
+}
+
+textarea{
+  margin-top: 1rem;
+  width: 95%;
+  margin: 1em auto;
+}
+label{
+  font-size: 1.2rem;
+  text-align: center;
+}
 
 .option{
   background-color: #fff;
