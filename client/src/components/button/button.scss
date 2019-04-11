@@ -10,10 +10,12 @@
 
 .heroButton{
 @extend .transButton;
+width: 100%;
+font-size: 1.4rem;
+color: $primaryColor;
 border: 3px solid $primaryColor;
 justify-content: space-around;
-margin: 1rem;
-color: $primaryColor;
+margin: 0 1rem 1rem;
 &:hover{
   border: 3px solid $offColor;
   background-color: $primaryColor;
@@ -30,12 +32,14 @@ color: $primaryColor;
    border: 3px solid $offColor ;
   background-color: $offColor;
   color: $primaryColor;
+  a{
+    color: $primaryColor;
+  }
   }
 }
 
 .submitButton{
   @extend .heroButton;
-
 }
 
 .buttonRow{

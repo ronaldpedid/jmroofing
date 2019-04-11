@@ -60,6 +60,10 @@
 
 }
 
+.selectorServicesGroup{
+  @extend .selectGroup;
+  width: 15%;
+}
 .inputField{
   padding: .5rem;
   margin: .5em;
@@ -90,4 +94,5 @@ label{
 
 .option{
   background-color: #fff;
+  font-size: 1.4rem;
 }

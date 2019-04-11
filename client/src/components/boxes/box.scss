@@ -6,6 +6,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 }
 
 .contentHat{
@@ -23,6 +26,18 @@
   width: 100%;
   background-color: $calloutColor;
   height: 450px;
+}
+
+.contentBigBoxCalloutService{
+  @extend .contentBigBoxCallout;
+  background-color: $secondaryOffColor;
+  h1{
+    color: $offColor;
+  }
+  p{
+    margin: -1rem 0 3rem 0;
+    font-size: 1.2rem;
+  }
 }
 
 .contentBigBoxTest{
@@ -57,7 +72,7 @@
 }
 
 .contentTag{
-  margin: 1rem 0;
+  margin: 1rem 0 3rem;
   font-size: 1.4rem;
 }
 
@@ -69,6 +84,15 @@
 .contentRow{
   display: flex;
   flex-direction: row;
+  @media (max-width: 700px) {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.contentRowThumbNails{
+  @extend .contentRow;
+  justify-content: center;
 }
 
 .footerRow{
@@ -125,4 +149,11 @@
 .bgCell2{
   @extend .contentBox;
   background-image: url('https://res.cloudinary.com/the-sage-mages/image/upload/v1554313086/jmroofing/3landingskylight.png');
+}
+
+.primary{
+  color: $primaryColor;
+  &:hover{
+    color: $offColor;
+  }
 }
