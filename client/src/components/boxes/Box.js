@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../../index.scss';
 
 export class ContentBox extends Component {
@@ -36,14 +37,21 @@ export class BoxRow extends Component {
 }
 
 export class BoxRowReverse extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this)
+  }
+  handleClick() {
+    document.getElementById('root').scrollIntoView();
+  }
   render() {
     return (
       <div className={styles.contentRow}>
         <ContentBox className={styles.greenBox}>
           <h2 className={styles.contentHeader}>Thinking about upgrading your skylight?</h2>
           <p className={styles.contentTag}>We'll handle installing, you handle the cloud watching.</p>
-          <a className={styles.infoButton}>
-            Explore Services </a>
+          <Link onClick={this.handleClick} to="/services"><a className={styles.infoButton}>
+            Explore Services </a></Link>
         </ContentBox>
         <ContentBox className={styles.bgCell2}></ContentBox>
 
@@ -101,17 +109,11 @@ export class BoxRowAbout1 extends Component {
           <h3 className={styles.contentHat}>GUARANTEE #1</h3>
           <h2 className={styles.contentHeader}>Experience Matters</h2>
           <p className={styles.contentTag}>Our craftmenship speaks for itself. So does our XX years of service to NWA.</p>
-          <a className={styles.infoButton}>
-            See More
-        </a>
         </ContentBox>
         <ContentBox className={styles.whiteBox}>
           <h3 className={styles.contentHat}>GUARANTEE #2</h3>
           <h2 className={styles.contentHeader}>Grade A Brands</h2>
           <p className={styles.contentTag}>Our craftmenship speaks for itself. So does our XX years of service to NWA.</p>
-          <a className={styles.infoButton}>
-            See More
-          </a>
         </ContentBox>
       </div>
     )
@@ -119,6 +121,13 @@ export class BoxRowAbout1 extends Component {
 }
 
 export class BoxRowAbout2 extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this)
+  }
+  handleClick() {
+    document.getElementById('root').scrollIntoView();
+  }
   render() {
     return (
       <div className={styles.contentRow}>
@@ -126,16 +135,12 @@ export class BoxRowAbout2 extends Component {
           <h3 className={styles.contentHat}>GUARANTEE #3</h3>
           <h2 className={styles.contentHeader}>No Sub-Contractors</h2>
           <p className={styles.contentTag}>Our craftmenship speaks for itself. So does our XX years of service to NWA.</p>
-          <a className={styles.infoButton}>
-            See More
-        </a></ContentBox>
+        </ContentBox>
         <ContentBox className={styles.whiteBox}>
           <h3 className={styles.contentHat}>GUARANTEE #4</h3>
           <h2 className={styles.contentHeader}>Efficient and Effortless</h2>
           <p className={styles.contentTag}>Our craftmenship speaks for itself. So does our XX years of service to NWA.</p>
-          <a className={styles.infoButton}>
-            See More
-          </a>
+
         </ContentBox>
       </div>
     )
@@ -143,14 +148,44 @@ export class BoxRowAbout2 extends Component {
 }
 
 export class BoxCallout extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this)
+  }
+  handleClick() {
+    document.getElementById('root').scrollIntoView();
+  }
   render() {
     return (
       <div className={styles.contentRow}>
         <ContentBox className={styles.contentBigBoxCallout}>
           <h1 className={styles.contentHeaderWhite}>Ready to start your project?</h1>
           <div className={styles.buttonRow}>
-            <a className={styles.calloutButton}>View Services</a>
-            <a className={styles.calloutButton}>About Us</a>
+            <Link href="tel:5551234567" to><a href="tel:5551234567" className={styles.calloutButton}>Call Us 479-555-5555</a></Link>
+            <Link onClick={this.handleClick} to="/estimate"><a className={styles.calloutButton}>Free Estimate</a></Link>
+          </div>
+        </ContentBox>
+      </div>
+    )
+  }
+}
+
+export class BoxCalloutService extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this)
+  }
+  handleClick() {
+    document.getElementById('root').scrollIntoView();
+  }
+  render() {
+    return (
+      <div className={styles.contentRow}>
+        <ContentBox className={styles.contentBigBoxCalloutService}>
+          <h1 className={styles.contentHeaderWhite}>Hail Happens</h1>
+          <p>We're experts in dealing with complicated roof repair and insurance companies.</p>
+          <div className={styles.buttonRow}>
+            <Link onClick={this.handleClick} to="/estimate"><a className={styles.calloutButton}>Get Your Free Estimate</a></Link>
           </div>
         </ContentBox>
       </div>

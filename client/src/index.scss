@@ -8,6 +8,7 @@
 @import '../src/components/boxes/box.scss';
 @import '../src/components/navigation/navigation.scss';
 @import '../src/views/Contact/form.scss';
+@import '../src/views/Services/services.scss';
 
 html{
   font-family: $siteFont;
@@ -21,7 +22,6 @@ body{
 
 a{
   text-decoration: none;
-  color: $offColor;
   &:active{
     color: $accentColor;
   }

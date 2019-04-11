@@ -5,6 +5,7 @@ import { ContactView } from './views/Contact/cForm';
 import { Footer } from './components/footer/Footer';
 import { Navigation } from './components/navigation/navigation';
 import { AboutView } from './views/About';
+import { ServiceView } from './views/Services';
 
 const NoMatch = ({ location }) => (
   <div>
@@ -21,6 +22,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={HomeView} />
             <Route path="/estimate" component={ContactView} />
+            <Route path="/services" component={ServiceView} />
             <Route path="/about" component={AboutView} />
             <Route component={NoMatch} />
           </Switch>

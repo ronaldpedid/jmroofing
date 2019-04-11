@@ -1,0 +1,33 @@
+.serviceSection{
+  background-color: $offColor;
+  padding-bottom: 2rem;
+}
+.serviceLander{
+  @extend .flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  background-image: url('https://res.cloudinary.com/the-sage-mages/image/upload/v1554313085/jmroofing/4Services.png');
+h1{
+  font-size: 1.6rem;
+  color: $offColor;
+}
+}
+
+.imgCell{
+  // width: 33%;
+  margin: 1rem;
+}
+
+.thumbnails{
+  height: 200px;
+  width: 100%;
+}
+
+.typeHeader{
+  font-size: 3.3rem;
+  margin: 2rem 0;
+  text-align: center;
+  color: $primaryColor;
+}
