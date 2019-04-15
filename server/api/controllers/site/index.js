@@ -35,7 +35,7 @@ async function sendContactForm(req, res) {
     const msg = {
       to: 'elementfayt@gmail.com',
       from: req.body.email,
-      subject: 'Hello from Node!',
+      subject: 'Request for Estimate',
       text: req.body.projectType,
       html:
         `<style>

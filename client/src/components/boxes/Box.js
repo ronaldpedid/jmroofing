@@ -140,7 +140,6 @@ export class BoxRowAbout2 extends Component {
           <h3 className={styles.contentHat}>GUARANTEE #4</h3>
           <h2 className={styles.contentHeader}>Efficient and Effortless</h2>
           <p className={styles.contentTag}>Our craftmenship speaks for itself. So does our XX years of service to NWA.</p>
-
         </ContentBox>
       </div>
     )
@@ -161,8 +160,8 @@ export class BoxCallout extends Component {
         <ContentBox className={styles.contentBigBoxCallout}>
           <h1 className={styles.contentHeaderWhite}>Ready to start your project?</h1>
           <div className={styles.buttonRow}>
-            <Link href="tel:5551234567" to><a href="tel:5551234567" className={styles.calloutButton}>Call Us 479-555-5555</a></Link>
-            <Link onClick={this.handleClick} to="/estimate"><a className={styles.calloutButton}>Free Estimate</a></Link>
+            <a href="tel:5551234567" className={styles.calloutButton}>Call Us 479-555-5555</a>
+            <Link onClick={this.handleClick} to="/estimate"><p className={styles.calloutButton}>Free Estimate</p></Link>
           </div>
         </ContentBox>
       </div>
@@ -185,7 +184,7 @@ export class BoxCalloutService extends Component {
           <h1 className={styles.contentHeaderWhite}>Hail Happens</h1>
           <p>We're experts in dealing with complicated roof repair and insurance companies.</p>
           <div className={styles.buttonRow}>
-            <Link onClick={this.handleClick} to="/estimate"><a className={styles.calloutButton}>Get Your Free Estimate</a></Link>
+            <Link onClick={this.handleClick} to="/estimate"><p className={styles.calloutButton1}>Get Your Free Estimate</p></Link>
           </div>
         </ContentBox>
       </div>

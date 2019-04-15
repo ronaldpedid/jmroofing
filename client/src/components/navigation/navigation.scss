@@ -8,10 +8,13 @@
   padding: 1rem;
   font-size: 1.4rem;
   z-index: 3;
-  
+
   h1{
     align-self: center;
     margin-left: 2rem;
+    @media(max-width: 599px){
+      margin-left: 0;
+    }
   }
   ul{
     @extend .flex;
@@ -20,6 +23,11 @@
     justify-content: space-around;
     list-style-type: none;
     margin-right: 3rem;
+    @media(max-width: 599px){
+       flex-direction: column;
+       justify-content: flex-end;
+       margin-right: 0;
+    }
   }
 
   li{
@@ -30,7 +38,17 @@
   }
 }
 
+
+.mobileNav{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 .navChild{
   margin: 0 3rem;
  
+}
+
+.hiddenNav{
+  display: none;
 }

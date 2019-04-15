@@ -1,21 +1,30 @@
 .transButton{
-  max-width: 200px;
-  width: 100%;
+  @extend .flex;
+  max-width: 300px;
+  width: 300px;
+  justify-content: center;
   background: transparent;
   text-align: center;
   padding: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   cursor: pointer;
+  @media(max-width: 768px){
+    width: 200px;
+    font-size: 1rem;
+  }
 }
 
 .heroButton{
 @extend .transButton;
-width: 100%;
-font-size: 1.4rem;
 color: $primaryColor;
 border: 3px solid $primaryColor;
 justify-content: space-around;
 margin: 0 1rem 1rem;
+@media (max-width: 600px) {
+  display: block;
+  width: 100%;
+  margin: 1rem auto;
+   }
 &:hover{
   border: 3px solid $offColor;
   background-color: $primaryColor;
@@ -45,15 +54,30 @@ margin: 0 1rem 1rem;
 .buttonRow{
   @extend .flex;
   justify-content: center;
+  @media (max-width: 600px) {
+    display: block;
+   
+     }
 }
 
 .calloutButton{
   @extend .infoButton;
-  max-width: 300px;
-  width: 200px;
-  font-size: 1.4rem;
   background-color: $calloutColor;
   &:first-child(){
     margin-right: 2em;
+    @media (max-width: 600px) {
+      margin-right: 0;
+       }
+  }
+}
+
+.calloutButton1{
+  @extend .calloutButton;
+  @media(max-width: 768px){
+    width: 300px;
+
+  }
+  &:first-child{
+    margin-right: 0
   }
 }

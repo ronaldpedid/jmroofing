@@ -12,8 +12,8 @@ export class Lander extends Component {
             <h1 className={styles.heroHeader}>Enjoy your scenery.</h1>
             <h4 className={styles.contentTag}>Whether it's preparing, repairing, or improving your roof. We are here to help.</h4>
             <div className={styles.buttonRow}>
-              <Link to='/services'><a className={styles.heroButton} >Explore Services</a></Link>
-              <Link to='/about'><a className={styles.heroButton}>About Us</a></Link>
+              <Link to='/services'><p className={styles.heroButton} >Explore Services</p></Link>
+              <Link to='/about'><p className={styles.heroButton}>About Us</p></Link>
             </div>
           </div>
         </div>
@@ -39,8 +39,8 @@ export class AboutLander extends Component {
         <ContentBox className={styles.blueBox}>
           <h2 className={styles.contentHeader}>Locals serving locals.</h2>
           <p className={styles.contentTag}>Small paragraph about what</p>
-          <Link className={styles.infoButton} to="/services"><a>
-            Explore Services </a></Link>
+          <Link className={styles.infoButton} to="/services"><p>
+            Explore Services </p></Link>
         </ContentBox>
         <ContentBox className={styles.aboutBox}></ContentBox>
       </div>
