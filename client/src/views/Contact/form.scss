@@ -85,6 +85,10 @@
   font-size: 1.4rem;
 }
 
+.error{
+  @extend .inputField;
+  border: 1px solid red;
+}
 .inputField1{
   @extend .inputField;
   align-self: center;
