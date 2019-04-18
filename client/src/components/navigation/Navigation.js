@@ -31,7 +31,7 @@ export class Navigation extends Component {
         <Link to="/">
           <h1 onClick={this.handleClick}>JM Roofing <span className={styles.thinText}>of NWA</span></h1>
         </Link>
-        <Media query={{ maxWidth: 599 }}>
+        <Media query={{ maxWidth: 1199 }}>
           {matches => matches ?
             (
               <div>
@@ -68,7 +68,7 @@ class NavOpen extends Navigation {
   render() {
     return (
       <div className={styles.mobileNav}>
-        <h1 onClick={this.props.onClick}>Menu</h1>
+        <h1 className={styles.menu} onClick={this.props.onClick}>Menu</h1>
       </div>
     )
   }
@@ -76,7 +76,7 @@ class NavOpen extends Navigation {
 class NavClosed extends Component {
   render() {
     return (<div className={styles.mobileNav}>
-      <h1 onClick={this.props.onClick}>Menu</h1>
+      <h1 className={styles.menu} onClick={this.props.onClick}>Menu</h1>
     </div>)
   }
 }

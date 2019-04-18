@@ -6,7 +6,7 @@ export class ServiceView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      viewToDisplay: 'Storm Damage'
+      viewToDisplay: 'New Construction'
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -38,16 +38,16 @@ export class ServiceView extends Component {
             <h1>We'll Help You Get to the Right Solutions for Your Project.</h1>
             <div className={styles.selectorServicesGroup}>
               <select className={styles.selector} name="viewToDisplay" onChange={this.handleChange}>
-                <option className={styles.option}>Storm Damage</option>
-                <option className={styles.option}>Tile Damage</option>
-                <option className={styles.option}>Skylights</option>
+                <option className={styles.option}>New Construction</option>
+                <option className={styles.option}>Storm Damage Repairs</option>
+                <option className={styles.option}>Skylight Repairs</option>
               </select>
             </div>
           </div>
           <div>
-            {this.state.viewToDisplay === 'Storm Damage' ?
+            {this.state.viewToDisplay === 'New Construction' ?
               <div className={styles.serviceSectionInner}>
-                <h1 className={styles.typeHeader}>Storm Damage</h1>
+                <h1 className={styles.typeHeader}>New Construction</h1>
                 <div className={styles.contentRowThumbNails}>
                   <div className={styles.imgCell}>
                     <img className={styles.thumbnails} src={stormImages[0].url} />

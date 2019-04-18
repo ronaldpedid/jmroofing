@@ -19,6 +19,14 @@ export class ContentBox extends Component {
 }
 
 export class BoxRow extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    document.getElementById('Guara').scrollIntoView();
+  }
   render() {
     return (
       <div className={styles.contentRow}>
@@ -27,9 +35,9 @@ export class BoxRow extends Component {
           <h3 className={styles.contentHat}>GUARANTEE #1</h3>
           <h2 className={styles.contentHeader}>Experience Matters</h2>
           <p className={styles.contentTag}>Our craftmenship speaks for itself. So does our XX years of service to NWA.</p>
-          <a className={styles.infoButton}>
+          <Link to="/about#Guara" onClick={this.handleClick}> <p className={styles.infoButton}>
             See More
-          </a>
+          </p> </Link>
         </ContentBox>
       </div>
     )
@@ -50,8 +58,8 @@ export class BoxRowReverse extends Component {
         <ContentBox className={styles.greenBox}>
           <h2 className={styles.contentHeader}>Thinking about upgrading your skylight?</h2>
           <p className={styles.contentTag}>We'll handle installing, you handle the cloud watching.</p>
-          <Link onClick={this.handleClick} to="/services"><a className={styles.infoButton}>
-            Explore Services </a></Link>
+          <Link onClick={this.handleClick} to="/services"><p className={styles.infoButton}>
+            Explore Services </p></Link>
         </ContentBox>
         <ContentBox className={styles.bgCell2}></ContentBox>
 
@@ -104,16 +112,18 @@ export class BoxTestimonials extends Component {
 export class BoxRowAbout1 extends Component {
   render() {
     return (
-      <div className={styles.contentRow}>
+      <div id="Guara" className={styles.contentRow}>
         <ContentBox className={styles.whiteBox}>
           <h3 className={styles.contentHat}>GUARANTEE #1</h3>
           <h2 className={styles.contentHeader}>Experience Matters</h2>
-          <p className={styles.contentTag}>Our craftmenship speaks for itself. So does our XX years of service to NWA.</p>
+          <p className={styles.contentTag}>
+            Our craftmenship speaks for itself. So does our 20 years of service to NWA.
+          </p>
         </ContentBox>
         <ContentBox className={styles.whiteBox}>
           <h3 className={styles.contentHat}>GUARANTEE #2</h3>
           <h2 className={styles.contentHeader}>Grade A Brands</h2>
-          <p className={styles.contentTag}>Our craftmenship speaks for itself. So does our XX years of service to NWA.</p>
+          <p className={styles.contentTag}>Using top industry brands to ensure the best possible quality.</p>
         </ContentBox>
       </div>
     )
@@ -134,12 +144,12 @@ export class BoxRowAbout2 extends Component {
         <ContentBox className={styles.whiteBox}>
           <h3 className={styles.contentHat}>GUARANTEE #3</h3>
           <h2 className={styles.contentHeader}>No Sub-Contractors</h2>
-          <p className={styles.contentTag}>Our craftmenship speaks for itself. So does our XX years of service to NWA.</p>
+          <p className={styles.contentTag}>Family owned and operated with a generation of experience.</p>
         </ContentBox>
         <ContentBox className={styles.whiteBox}>
           <h3 className={styles.contentHat}>GUARANTEE #4</h3>
           <h2 className={styles.contentHeader}>Efficient and Effortless</h2>
-          <p className={styles.contentTag}>Our craftmenship speaks for itself. So does our XX years of service to NWA.</p>
+          <p className={styles.contentTag}>A painless process for you to achieve the roof you desire.</p>
         </ContentBox>
       </div>
     )

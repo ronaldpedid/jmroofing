@@ -1,18 +1,17 @@
 .navBox{
+  @extend .flex;
   position: sticky;
   top: 0;
   color: $offColor;
   background-color: $primaryColor;
-  display: flex;
   justify-content: space-between;
   padding: 1rem;
   font-size: 1.4rem;
   z-index: 3;
-
   h1{
     align-self: center;
     margin-left: 2rem;
-    @media(max-width: 599px){
+    @media(max-width: 1199px){
       margin-left: 0;
     }
   }
@@ -23,7 +22,7 @@
     justify-content: space-around;
     list-style-type: none;
     margin-right: 3rem;
-    @media(max-width: 599px){
+    @media(max-width: 1199px){
        flex-direction: column;
        justify-content: flex-end;
        margin-right: 0;
@@ -38,17 +37,18 @@
   }
 }
 
-
 .mobileNav{
-  display: flex;
+  @extend .flex;
   flex-direction: column;
   justify-content: flex-end;
+  & .menu{
+    cursor: pointer;
+  }
 }
 .navChild{
   margin: 0 3rem;
+  @media(max-width: 1199px){
+    margin: 0;
+  }
  
-}
-
-.hiddenNav{
-  display: none;
 }
