@@ -37,7 +37,7 @@ export class ServiceView extends Component {
           <div className={styles.serviceLander}>
             <h1>We'll Help You Get to the Right Solutions for Your Project.</h1>
             <div className={styles.selectorServicesGroup}>
-              <select className={styles.selector} name="viewToDisplay" onChange={this.handleChange}>
+              <select className={styles.selectorServices} name="viewToDisplay" onChange={this.handleChange}>
                 <option className={styles.option}>New Construction</option>
                 <option className={styles.option}>Storm Damage Repairs</option>
                 <option className={styles.option}>Skylight Repairs</option>

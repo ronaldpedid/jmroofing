@@ -3,12 +3,6 @@ import { Link } from 'react-router-dom';
 import styles from '../../index.scss';
 
 export class ContentBox extends Component {
-  constructor(props) {
-    super(props);
-    const {
-      className
-    } = this.props;
-  }
   render() {
     return (
       <div className={this.props.className}>
@@ -34,7 +28,7 @@ export class BoxRow extends Component {
         <ContentBox className={styles.blueBox}>
           <h3 className={styles.contentHat}>GUARANTEE #1</h3>
           <h2 className={styles.contentHeader}>Experience Matters</h2>
-          <p className={styles.contentTag}>Our craftmenship speaks for itself. So does our XX years of service to NWA.</p>
+          <p className={styles.contentTag}>Our craftmenship speaks for itself. So does our 20 years of service to NWA.</p>
           <Link to="/about#Guara" onClick={this.handleClick}> <p className={styles.infoButton}>
             See More
           </p> </Link>
@@ -97,8 +91,6 @@ export class BoxTestimonials extends Component {
       byWho: 'Guy Man6'
     }];
     let randomNumber = Math.floor(Math.random() * quotes.length);
-    console.log(quotes[randomNumber.quote])
-    console.log(quotes[randomNumber.byWho])
     return (
       <section className={styles.contentBigBoxTest}>
         <h3 className={styles.quote}>"{quotes[randomNumber].quote}"</h3>

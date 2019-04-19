@@ -12,24 +12,27 @@
 h1{
   font-size: 1.6rem;
   color: $offColor;
+  margin-bottom: 1rem;
   @media(max-width: 768px){
     text-align: center;
   }
   @media(max-width: 600px){
-   margin: 0 2rem;
+   margin: 0 2rem 2rem;
   }
-  
 }
 }
 
 .imgCell{
-  // width: 33%;
-  margin: 1rem;
+ @extend .flex;
+ flex-direction: column;
+ justify-content: center;
 }
 
 .thumbnails{
+  max-width: 250px;
   height: 200px;
   width: 100%;
+  margin: 1rem;
 }
 
 .typeHeader{

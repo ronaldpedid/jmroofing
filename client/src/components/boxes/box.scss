@@ -115,6 +115,7 @@
 .contentRowThumbNails{
   @extend .contentRow;
   justify-content: center;
+  align-items: center;
 }
 
 .footerRow{

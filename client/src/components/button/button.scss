@@ -49,9 +49,10 @@ margin: 0 1rem 1rem;
 
 .submitButton{
   @extend .heroButton;
+  margin: 2rem 0 3rem;
   @media(max-width: 645px){
     justify-content: center;
-    margin: 0 auto 2rem auto;
+    margin: 2rem auto 3rem auto;
   }
 }
 
@@ -77,6 +78,7 @@ margin: 0 1rem 1rem;
 
 .calloutButton1{
   @extend .calloutButton;
+  background: transparent;
   @media(max-width: 768px){
     width: 300px;
 
