@@ -29,13 +29,19 @@ async function sendContactForm(req, res) {
       return null
     }
 
+    function truncateDate(date) {
+      if (date.length > 10) {
+        return date.substring(0, 10);
+      }
+    }
 
     const newPhoNum = formatPhoneNumber(req.body.phone);
+    const newDate = truncateDate(req.body.startDate);
     console.log(req.body);
     const msg = {
       to: 'elementfayt@gmail.com',
       from: req.body.email,
-      subject: 'Hello from Node!',
+      subject: 'Request for Estimate',
       text: req.body.projectType,
       html:
         `<style>
@@ -76,7 +82,7 @@ async function sendContactForm(req, res) {
       <h3 class="headline">Work Details</h3>
             <ul class="ul">
               <li class="li">Budget: $ ${req.body.budget}</li>
-              <li class="li">Start Date: ${req.body.startDate}</li>
+              <li class="li">Start Date: ${newDate}</li>
               <li class="li">Project Type: ${req.body.projectType}</li>
               <li class="li">Project Description: ${req.body.projectDesc}</li>
             </ul>`

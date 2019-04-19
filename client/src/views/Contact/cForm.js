@@ -3,8 +3,6 @@ import axios from 'axios';
 import styles from '../../index.scss';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-
-// CSS Modules, react-datepicker-cssmodules.css
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 class ContactForm extends Component {
@@ -25,6 +23,18 @@ class ContactForm extends Component {
       handleSubmit,
       handleDate,
       timeToReach,
+      firstNameErr,
+      lastNameErr,
+      projectDescErr,
+      projectTypeErr,
+      commPrefErr,
+      timeToReachErr,
+      emailErr,
+      phoneErr,
+      cityErr,
+      streetErr,
+      budgetErr,
+      startDateErr
     } = this.props;
     return (
       <div className={styles.formWrapper}>
@@ -32,46 +42,44 @@ class ContactForm extends Component {
           <div className={styles.formGroupRow}>
 
             <div className={styles.formGroupCol}>
-              <label>*Name</label>
-              <input className={styles.inputField} name='firstName' type='text' placeholder='First Name' onChange={handleChange} value={firstName} />
-              <input className={styles.inputField} name='lastName' type='text' placeholder='Last Name' onChange={handleChange} value={lastName} />
+              <label>Name</label>
+              <input className={firstNameErr ? styles.error : styles.inputField} name='firstName' type='text' placeholder='First Name' onChange={handleChange} value={firstName} />
+              <input className={lastNameErr ? styles.error : styles.inputField} name='lastName' type='text' placeholder='Last Name' onChange={handleChange} value={lastName} />
             </div>
             <div className={styles.formGroupCol}>
-              <label>*Address</label>
-              <input className={styles.inputField} name='street' type='text' placeholder='Street' onChange={handleChange} value={street} />
-              <input className={styles.inputField} name='city' type='text' placeholder='City' onChange={handleChange} value={city} />
+              <label>Address</label>
+              <input className={streetErr ? styles.error : styles.inputField} name='street' type='text' placeholder='Street' onChange={handleChange} value={street} />
+              <input className={cityErr ? styles.error : styles.inputField} name='city' type='text' placeholder='City' onChange={handleChange} value={city} />
             </div>
 
           </div>
           <div className={styles.formGroupRow}>
             <div className={styles.formGroupCol}>
-              <label>*Phone Number</label>
-              <input className={styles.inputField1} name='phone' type='tel' onChange={handleChange} value={phone} placeholder="555-555-5555" />
+              <label>Phone Number</label>
+              <input className={phoneErr ? styles.error : styles.inputField1} name='phone' type='tel' onChange={handleChange} value={phone} placeholder="555-555-5555" />
             </div>
             <div className={styles.formGroupCol}>
-              <label>*Email</label>
-              <input className={styles.inputField1} name='email' type='email' onChange={handleChange} value={email} placeholder="me@example.com" />
+              <label>Email</label>
+              <input className={emailErr ? styles.error : styles.inputField1} name='email' type='email' onChange={handleChange} value={email} placeholder="me@example.com" />
 
             </div>
           </div>
 
           <div className={styles.formGroupRow}>
-
-
             <div className={styles.formGroupCol}>
               <label>Estimated Budget</label>
-              <input className={styles.inputField1} name='budget' type='number' placeholder="$" onChange={handleChange} value={budget} />
+              <input className={budgetErr ? styles.error : styles.inputField1} name='budget' type='number' placeholder="$" onChange={handleChange} value={budget} />
             </div>
 
           </div>
           <div className={styles.formGroupCol}>
             <label>Project Description</label>
-            <textarea name='projectDesc' onChange={handleChange} value={projectDesc} rows='6' />
+            <textarea className={projectDescErr ? styles.error : ''} name='projectDesc' onChange={handleChange} value={projectDesc} rows='6' />
           </div>
 
           <div className={styles.selectGroup}>
             <label>Type of Project</label>
-            <select name='projectType' onChange={handleChange} value={projectType}>
+            <select className={projectTypeErr ? styles.error : styles.selector} name='projectType' onChange={handleChange} value={projectType}>
               <option className={styles.option}>Select One</option>
               <option className={styles.option}>Option 1</option>
               <option className={styles.option}>Option 2</option>
@@ -80,7 +88,7 @@ class ContactForm extends Component {
           </div>
 
           <div className={styles.selectGroup}>
-            <label>Start Date</label>
+            <label className={startDateErr ? styles.error : styles.selector}>Start Date</label>
             <DatePicker
               className={styles.datePicker}
               name='startDate'
@@ -91,11 +99,9 @@ class ContactForm extends Component {
           </div>
 
           <div className={styles.formGroupRow}>
-
-
             <div className={styles.selectGroup}>
               <label>Communication Preference</label>
-              <select className={styles.selector} name='commPref' onChange={handleChange} value={commPref}>
+              <select className={commPrefErr ? styles.error : styles.selectorL} name='commPref' onChange={handleChange} value={commPref}>
                 <option className={styles.option}>Select One</option>
                 <option className={styles.option}>Call</option>
                 <option className={styles.option}>Text</option>
@@ -105,7 +111,7 @@ class ContactForm extends Component {
 
             <div className={styles.selectGroup}>
               <label>Best Time to Reach You</label>
-              <select className={styles.selector} name='timeToReach' onChange={handleChange} value={timeToReach}>
+              <select className={timeToReachErr ? styles.error : styles.selectorR} name='timeToReach' onChange={handleChange} value={timeToReach}>
                 <option className={styles.option}>Select One</option>
                 <option className={styles.option}>Morning</option>
                 <option className={styles.option}>Afternoon</option>
@@ -139,13 +145,83 @@ export class ContactView extends Component {
       startDate: new Date(),
       timeToReach: '',
       commPref: '',
-      budget: ''
+      budget: '',
+      firstNameErr: false,
+      lastNameErr: false,
+      projectDescErr: false,
+      projectTypeErr: false,
+      budgetErr: false,
+      emailErr: false,
+      phoneErr: false,
+      cityErr: false,
+      streetErr: false,
+      commPrefErr: false,
+      timeToReachErr: false,
+      startDateErr: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDate = this.handleDate.bind(this);
 
+  }
+
+  //validation for the form data so we don't send incomplete data to our client
+  validateForm() {
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      projectDesc,
+      timeToReach,
+      commPref,
+      city,
+      street,
+      projectType,
+      budget,
+      startDate } = this.state;
+    const firstNameErr = firstName.length === 0;
+    const lastNameErr = lastName.length === 0;
+    const projectDescErr = projectDesc.length === 0;
+    const projectTypeErr = projectType.length === 0;
+    const timeToReachErr = timeToReach.length === 0;
+    const emailErr = email.length === 0;
+    const phoneErr = phone.length === 0 || phone.length < 7;
+    const commPrefErr = commPref.length === 0;
+    const cityErr = city.length === 0;
+    const streetErr = street.length === 0;
+    const budgetErr = budget.length === 0;
+    const startDateErr = startDate.length === 0;
+
+    //if errors this sets the state of the errors to true
+    this.setState({
+      firstNameErr,
+      lastNameErr,
+      projectDescErr,
+      timeToReachErr,
+      emailErr,
+      phoneErr,
+      commPrefErr,
+      cityErr,
+      streetErr,
+      budgetErr,
+      projectTypeErr,
+      startDateErr
+    })
+    return !(firstNameErr || //return if no errors
+      lastNameErr ||
+      emailErr ||
+      phoneErr ||
+      projectDescErr ||
+      projectTypeErr ||
+      timeToReachErr ||
+      commPrefErr ||
+      cityErr ||
+      streetErr ||
+      budgetErr ||
+      startDateErr
+    );
   }
 
   handleChange(e) {
@@ -192,9 +268,12 @@ export class ContactView extends Component {
 
   async handleSubmit(e) {
     e.preventDefault();
-    let redirect = window.location = '/';
-    await this.submitForm();
-    await redirect;
+    if (this.validateForm()) { //it validateForm returns true set the redirect variable and then submit the form
+      let redirect = window.location = '/';
+      await this.submitForm();
+      await redirect;
+    }
+
   }
   render() {
     const {
@@ -209,7 +288,19 @@ export class ContactView extends Component {
       email,
       phone,
       budget,
-      timeToReach
+      timeToReach,
+      firstNameErr,
+      lastNameErr,
+      commPrefErr,
+      timeToReachErr,
+      projectDescErr,
+      projectTypeErr,
+      emailErr,
+      phoneErr,
+      cityErr,
+      streetErr,
+      budgetErr,
+      startDateErr
     } = this.state;
     return (
       <div>
@@ -226,6 +317,18 @@ export class ContactView extends Component {
           timeToReach={timeToReach}
           startDate={startDate}
           commPref={commPref}
+          firstNameErr={firstNameErr}
+          lastNameErr={lastNameErr}
+          projectDescErr={projectDescErr}
+          projectTypeErr={projectTypeErr}
+          emailErr={emailErr}
+          phoneErr={phoneErr}
+          cityErr={cityErr}
+          streetErr={streetErr}
+          timeToReachErr={timeToReachErr}
+          commPrefErr={commPrefErr}
+          budgetErr={budgetErr}
+          startDateErr={startDateErr}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           handleDate={this.handleDate}
