@@ -101,7 +101,7 @@ class ContactForm extends Component {
           <div className={styles.formGroupRow}>
             <div className={styles.selectGroup}>
               <label>Communication Preference</label>
-              <select className={commPrefErr ? styles.error : styles.selectorL} name='commPref' onChange={handleChange} value={commPref}>
+              <select className={commPrefErr ? styles.errorL : styles.selectorL} name='commPref' onChange={handleChange} value={commPref}>
                 <option className={styles.option}>Select One</option>
                 <option className={styles.option}>Call</option>
                 <option className={styles.option}>Text</option>
