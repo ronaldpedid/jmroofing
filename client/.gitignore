@@ -1,1 +1,3 @@
 node_modules
+haproxy.cfg
+docker-compose.yml

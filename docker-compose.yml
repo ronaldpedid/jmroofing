@@ -15,7 +15,7 @@ services:
       dockerfile: Dockerfile
     command: "npm run start"
     ports:
-      - "8081:8080"
+      - "8080:8080"
     volumes:
       - ./client:/home/client
       - client_node_modules:/home/client/node_modules
@@ -34,8 +34,8 @@ services:
       - client
       - assets
     ports:
-      - "8080:8080"
       - "80:80"
+      - "443:443"
     networks:
       default:
         aliases:
