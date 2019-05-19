@@ -93,6 +93,12 @@
 .contentTag{
   margin: 3rem 1rem 3rem;
   font-size: 1.4rem;
+  @media (max-width: 1440px) {
+    font-size: 1.1rem;
+    }
+  @media (max-width: 1000px) {
+    font-size: .82rem;
+    }
   @media (max-width: 768px) {
   font-size: 1.3rem;
   }
@@ -162,6 +168,9 @@
   @extend .contentBox;
   background-image: url('https://res.cloudinary.com/the-sage-mages/image/upload/v1554395088/jmroofing/jnm.jpg');
   background-size: cover;
+  @media (max-width: 1000px) {
+    background-size: center;
+    }
 }
 
 .greenBox{

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { HomeView } from './views/Home';
 import { ContactView } from './views/Contact/cForm';
 import { Footer } from './components/footer/Footer';
-import { Navigation } from './components/navigation/navigation';
+import { Navigation } from './components/navigation/Navigation';
 import { AboutView } from './views/About';
 import { ServiceView } from './views/Services';
 

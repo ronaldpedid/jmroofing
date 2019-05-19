@@ -1,3 +1,9 @@
+input, textarea, select{
+  border-radius: 5px;
+
+}
+
+
 .formWrapper{
   @extend .flex;
   justify-content: center;
@@ -72,13 +78,15 @@
   
 }
 
-.selectorL{
+.selectorL, .selectorR{
   @extend .selector;
 }
 
 .selectorL{
   margin-right: 2rem;
+
 }
+
 .selectorServices{
   @extend .selector;
 }
@@ -101,6 +109,13 @@
   border: 1px solid red;
   color: red;
 }
+
+.errorL{
+  @extend .error;
+  margin-right: 2rem;
+
+}
+
 .inputField1{
   @extend .inputField;
   align-self: center;
