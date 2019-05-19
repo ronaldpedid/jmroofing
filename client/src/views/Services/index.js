@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import styles from '../../index.scss';
 import { BoxCalloutService } from '../../components/boxes/Box';
+import newConstruction from './newConData';
+import resdientialData from './residentialData';
 
 export class ServiceView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      viewToDisplay: 'New Construction'
+      viewToDisplay: 'New Construction',
+      newConstructionData: newConstruction,
+      residentialConData: resdientialData
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -17,20 +21,7 @@ export class ServiceView extends Component {
   }
 
   render() {
-    let stormImages = [
-      {
-        url: 'https://res.cloudinary.com/the-sage-mages/image/upload/v1554313084/jmroofing/2landingservice.png',
-        alt: 'alt text'
-      },
-      {
-        url: 'https://res.cloudinary.com/the-sage-mages/image/upload/v1554313084/jmroofing/2landingservice.png',
-        alt: 'alt text'
-      },
-      {
-        url: 'https://res.cloudinary.com/the-sage-mages/image/upload/v1554313084/jmroofing/2landingservice.png',
-        alt: 'alt text'
-      }
-    ];
+    console.log(this.state.residentialConData);
     return (
       <div>
         <section className={styles.serviceSection}>
@@ -39,90 +30,46 @@ export class ServiceView extends Component {
             <div className={styles.selectorServicesGroup}>
               <select className={styles.selectorServices} name="viewToDisplay" onChange={this.handleChange}>
                 <option className={styles.option}>New Construction</option>
-                <option className={styles.option}>Storm Damage Repairs</option>
-                <option className={styles.option}>Skylight Repairs</option>
+                <option className={styles.option}>Residential</option>
               </select>
             </div>
           </div>
           <div>
             {this.state.viewToDisplay === 'New Construction' ?
-              <div className={styles.serviceSectionInner}>
+              <div className={styles.serviceSection}>
                 <h1 className={styles.typeHeader}>New Construction</h1>
                 <div className={styles.contentRowThumbNails}>
-                  <div className={styles.imgCell}>
-                    <img className={styles.thumbnails} src={stormImages[0].url} />
-                    <h1>Img Header</h1>
-                    <p>Img Blurb</p>
-                  </div>
-                  <div className={styles.imgCell}>
-                    <img className={styles.thumbnails} src={stormImages[0].url} />
-                    <h1>Img Header</h1>
-                    <p>Img Blurb</p>
-                  </div>
-                  <div className={styles.imgCell}>
-                    <img className={styles.thumbnails} src={stormImages[0].url} />
-                    <h1>Img Header</h1>
-                    <p>Img Blurb</p>
-                  </div>
+                  {this.state.newConstructionData.map((data, index) => (
+                    <div key={`newc${index}`} className={styles.imgCell}>
+                      <img className={styles.thumbnails} src={this.state.newConstructionData[index].url} alt={this.state.newConstructionData[index].alt} />
+                      <h1>{this.state.newConstructionData[index].header}</h1>
+                      <p>{this.state.newConstructionData[index].blurb}</p>
+                    </div>
+                  ))}
                 </div>
-                <div className={styles.contentRowThumbNails}>
-                  <div className={styles.imgCell}>
-                    <img className={styles.thumbnails} src={stormImages[0].url} />
-                    <h1>Img Header</h1>
-                    <p>Img Blurb</p>
-                  </div>
-                  <div className={styles.imgCell}>
-                    <img className={styles.thumbnails} src={stormImages[0].url} />
-                    <h1>Img Header</h1>
-                    <p>Img Blurb</p>
-                  </div>
-                </div>
+                <h4 className={styles.serviceCopy}>
+                  Bacon ipsum dolor amet capicola pork chop strip steak burgdoggen beef ribs rump. Bacon filet mignon turkey, shoulder ham hock salami pork beef ribs t-bone sausage spare ribs hamburger alcatra flank.
+              </h4>
               </div>
               : ''}
-            {this.state.viewToDisplay === 'Tile Damage' ?
+            {this.state.viewToDisplay === 'Residential' ?
               <div className={styles.serviceSection}>
-                <h1 className={styles.typeHeader}>Tile Damage</h1>
+                <h1 className={styles.typeHeader}>Residential</h1>
                 <div className={styles.contentRowThumbNails}>
-                  <div className={styles.imgCell}>
-                    <img className={styles.thumbnails} src={stormImages[0].url} />
-                    <h1>Img Header</h1>
-                    <p>Img Blurb</p>
-                  </div>
-                  <div className={styles.imgCell}>
-                    <img className={styles.thumbnails} src={stormImages[0].url} />
-                    <h1>Img Header</h1>
-                    <p>Img Blurb</p>
-                  </div>
-                  <div className={styles.imgCell}>
-                    <img className={styles.thumbnails} src={stormImages[0].url} />
-                    <h1>Img Header</h1>
-                    <p>Img Blurb</p>
-                  </div>
+                  {this.state.residentialConData.map((data, index) =>
+                    (<div key={`res${index}`} className={styles.imgCell}>
+                      <img className={styles.thumbnails} src={this.state.residentialConData[index].url} />
+                      <h1>{this.state.residentialConData[index].header}</h1>
+                      <p>{this.state.residentialConData[index].blurb}</p>
+                    </div>
+                    ))}
+
                 </div>
-              </div> : ''}
-            {this.state.viewToDisplay === 'Skylights' ?
-              <div className={styles.serviceSection}>
-                <h1 className={styles.typeHeader}>Skylights</h1>
-                <div className={styles.contentRowThumbNails}>
-                  <div className={styles.imgCell}>
-                    <img className={styles.thumbnails} src={stormImages[0].url} />
-                    <h1>Img Header</h1>
-                    <p>Img Blurb</p>
-                  </div>
-                  <div className={styles.imgCell}>
-                    <img className={styles.thumbnails} src={stormImages[0].url} />
-                    <h1>Img Header</h1>
-                    <p>Img Blurb</p>
-                  </div>
-                  <div className={styles.imgCell}>
-                    <img className={styles.thumbnails} src={stormImages[0].url} />
-                    <h1>Img Header</h1>
-                    <p>Img Blurb</p>
-                  </div>
-                </div>
+                <h4 className={styles.serviceCopy}>
+                  Bacon ipsum dolor amet capicola pork chop strip steak burgdoggen beef ribs rump. Bacon filet mignon turkey, shoulder ham hock salami pork beef ribs t-bone sausage spare ribs hamburger alcatra flank.
+                </h4>
               </div> : ''}
           </div>
-
         </section>
         <BoxCalloutService />
       </div>
