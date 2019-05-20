@@ -104,10 +104,19 @@ input, textarea, select{
   font-size: 1.4rem;
 }
 
+.textArea{
+  @extend .inputField;
+}
 .error{
   @extend .inputField;
   border: 1px solid red;
-  color: red;
+
+}
+
+.errorTextArea{
+  @extend .error;
+  border: 1px solid red;
+  color: #333;
 }
 
 .errorL{
@@ -119,7 +128,6 @@ input, textarea, select{
 .inputField1{
   @extend .inputField;
   align-self: center;
-  
 }
 
 .datePicker{
@@ -151,6 +159,9 @@ label{
   font-size: 1.4rem;
 }
 
+#commPref select > option {
+  border-bottom: 1px solid black;
+}
 input{
   @media(max-width: 645px){
     &::placeholder{

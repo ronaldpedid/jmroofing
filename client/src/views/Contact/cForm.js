@@ -74,16 +74,15 @@ class ContactForm extends Component {
           </div>
           <div className={styles.formGroupCol}>
             <label>Project Description</label>
-            <textarea className={projectDescErr ? styles.error : ''} name='projectDesc' onChange={handleChange} value={projectDesc} rows='6' />
+            <textarea className={projectDescErr ? styles.errorTextArea : styles.textArea} name='projectDesc' onChange={handleChange} value={projectDesc} rows='6' />
           </div>
 
           <div className={styles.selectGroup}>
             <label>Type of Project</label>
             <select className={projectTypeErr ? styles.error : styles.selector} name='projectType' onChange={handleChange} value={projectType}>
               <option className={styles.option}>Select One</option>
-              <option className={styles.option}>Option 1</option>
-              <option className={styles.option}>Option 2</option>
-              <option className={styles.option}>Option 3</option>
+              <option className={styles.option}>New Construction</option>
+              <option className={styles.option}>Residential</option>
             </select>
           </div>
 
@@ -101,7 +100,7 @@ class ContactForm extends Component {
           <div className={styles.formGroupRow}>
             <div className={styles.selectGroup}>
               <label>Communication Preference</label>
-              <select className={commPrefErr ? styles.errorL : styles.selectorL} name='commPref' onChange={handleChange} value={commPref}>
+              <select id='commPref' className={commPrefErr ? styles.errorL : styles.selectorL} name='commPref' onChange={handleChange} value={commPref}>
                 <option className={styles.option}>Select One</option>
                 <option className={styles.option}>Call</option>
                 <option className={styles.option}>Text</option>
@@ -176,19 +175,19 @@ export class ContactView extends Component {
       projectDesc,
       timeToReach,
       commPref,
+      projectType,
       city,
       street,
-      projectType,
       budget,
       startDate } = this.state;
     const firstNameErr = firstName.length === 0;
     const lastNameErr = lastName.length === 0;
     const projectDescErr = projectDesc.length === 0;
-    const projectTypeErr = projectType.length === 0;
-    const timeToReachErr = timeToReach.length === 0;
+    const projectTypeErr = projectType === "Select One";
+    const timeToReachErr = timeToReach === "Select One";
     const emailErr = email.length === 0;
     const phoneErr = phone.length === 0 || phone.length < 7;
-    const commPrefErr = commPref.length === 0;
+    const commPrefErr = commPref === "Select One";
     const cityErr = city.length === 0;
     const streetErr = street.length === 0;
     const budgetErr = budget.length === 0;
