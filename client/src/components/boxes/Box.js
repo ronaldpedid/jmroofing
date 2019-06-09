@@ -71,29 +71,14 @@ export class BoxTestimonials extends Component {
       byWho: 'Randy Huffman'
     },
     {
-      quote: 'We love our clients!',
-      byWho: 'Guy Man2'
+      quote: 'Juan/J & M Roofing replaced our roof after hail damage.  They were on time, provided quality work, and the price was reasonable with no issues after things were agreed upon.  Juan also worked with us through some insurance difficulties to be sure the job was ultimately done properly.  In general, Juan was easy to work with and I would recommend him to other homeowners.  He has even been willing to stop by my mom’s house and complete a minor repair on her roof.  It’s not always easy to find a reputable roofer willing to do such a small job, particularly with such a booming home building market in NW Arkansas. ',
+      byWho: 'Jason Stiles'
     },
-    {
-      quote: 'We love our clients!',
-      byWho: 'Guy Man3'
-    },
-    {
-      quote: 'We love our clients!',
-      byWho: 'Guy Man4'
-    },
-    {
-      quote: 'We love our clients!',
-      byWho: 'Guy Man5'
-    },
-    {
-      quote: 'We love our clients!',
-      byWho: 'Guy Man6'
-    }];
+    ];
     let randomNumber = Math.floor(Math.random() * quotes.length);
     return (
       <section className={styles.contentBigBoxTest}>
-        <h3 className={styles.quote}>"{quotes[randomNumber].quote}"</h3>
+        <h3 className={styles.quote}>{quotes[randomNumber].quote}</h3>
         <h3 className={styles.byWho}>- {quotes[randomNumber].byWho}</h3>
       </section>
 
@@ -135,7 +120,7 @@ export class BoxRowAbout2 extends Component {
       <div className={styles.contentRow}>
         <ContentBox className={styles.whiteBox}>
           <h3 className={styles.contentHat}>GUARANTEE #3</h3>
-          <h2 className={styles.contentHeader}>No Sub-Contractors</h2>
+          <h2 className={styles.contentHeader}>Family Owned</h2>
           <p className={styles.contentTag}>Family owned and operated with a generation of experience.</p>
         </ContentBox>
         <ContentBox className={styles.whiteBox}>

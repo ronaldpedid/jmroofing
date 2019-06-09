@@ -63,8 +63,7 @@ input, textarea, select{
   -moz-appearance: none;
   appearance: none;
   padding-left: .2rem;
-  border: none;
-  background: $offColor url("https://res.cloudinary.com/the-sage-mages/image/upload/v1555669578/yelarrow.png") no-repeat 100%;
+  background: whitesmoke  url("https://res.cloudinary.com/the-sage-mages/image/upload/v1555669578/yelarrow.png") no-repeat 100%;
   background-size: contain;
   @media(max-width: 649px){
     margin: 1rem 0 1rem 1.345rem;
@@ -75,23 +74,26 @@ input, textarea, select{
 
 .selector{
   margin-top: 1rem;
-  
+
 }
 
 .selectorL, .selectorR{
   @extend .selector;
+ 
 }
 
 .selectorL{
   margin-right: 2rem;
-
+  
 }
 
 .selectorServices{
   @extend .selector;
+  
 }
 .selectorServicesGroup{
   @extend .selectGroup;
+  
   max-width: 500px;
   @media(max-width: 600px){
   width: 300px;
@@ -102,6 +104,10 @@ input, textarea, select{
   padding: .5rem;
   margin: .5em;
   font-size: 1.4rem;
+  background: whitesmoke;
+  border: none;
+  border-radius: none;
+  border: 2px solid rgba(0,0,0,0.1);
 }
 
 .textArea{

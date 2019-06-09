@@ -53,25 +53,32 @@
   @extend .contentBigBox;
   height: 500px;
   background-color: $offColor;
-  font-size: 1.6rem;
+  }
   .quote{
    font-size: 1.4rem;
    text-align: center;
-   text-emphasis: after;
+   padding: 1em;
+   line-height: 1.3; 
    margin: 0 5em;
+   text-align: justify;
    @media (max-width: 768px) {
-      margin: 0 3em;
+     font-size: 1.2rem;
+      margin: 0 1em;
     }
     @media (max-width: 425px) {
-      margin: 0 1em;
+      margin: 0 1rem;
+      font-size: 1.6rem;
+      line-height: 1;
     }
   }
   .byWho{
     margin-top: 1em;
     color: $secondaryOffColor;
+    font-size: 1.6rem;
     
   }
-}
+
+
 
 .contentBigBoxFooter{
   @extend .contentBox;
@@ -91,8 +98,10 @@
 }
 
 .contentTag{
-  margin: 3rem 1rem 3rem;
+  margin: 3rem 6rem 3rem;
   font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.4;
   @media (max-width: 1440px) {
     font-size: 1.1rem;
     }
@@ -100,7 +109,12 @@
     font-size: .82rem;
     }
   @media (max-width: 768px) {
+    margin-right:  3rem;
+    margin-left:  3rem;
   font-size: 1.3rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 1rem;
   }
 }
 
@@ -166,7 +180,7 @@
 
 .aboutBox{
   @extend .contentBox;
-  background-image: url('https://res.cloudinary.com/the-sage-mages/image/upload/v1554395088/jmroofing/jnm.jpg');
+  background-image: url('http://res.cloudinary.com/the-sage-mages/image/upload/v1560082899/jmroofing/jnm1.jpg');
   background-size: cover;
   @media (max-width: 1000px) {
     background-size: center;
@@ -189,7 +203,7 @@
 }
 .bgCell2{
   @extend .contentBox;
-  background-image: url('https://res.cloudinary.com/the-sage-mages/image/upload/v1554313086/jmroofing/3landingskylight.png');
+  background-image: url('https://res.cloudinary.com/the-sage-mages/image/upload/v1559695431/jmroofing/skylight.png');
 }
 
 .primary{

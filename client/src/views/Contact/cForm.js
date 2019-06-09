@@ -36,7 +36,9 @@ class ContactForm extends Component {
       budgetErr,
       startDateErr
     } = this.props;
+
     return (
+
       <div className={styles.formWrapper}>
         <form onSubmit={handleSubmit}>
           <div className={styles.formGroupRow}>
@@ -76,7 +78,6 @@ class ContactForm extends Component {
             <label>Project Description</label>
             <textarea className={projectDescErr ? styles.errorTextArea : styles.textArea} name='projectDesc' onChange={handleChange} value={projectDesc} rows='6' />
           </div>
-
           <div className={styles.selectGroup}>
             <label>Type of Project</label>
             <select className={projectTypeErr ? styles.error : styles.selector} name='projectType' onChange={handleChange} value={projectType}>
@@ -85,7 +86,6 @@ class ContactForm extends Component {
               <option className={styles.option}>Residential</option>
             </select>
           </div>
-
           <div className={styles.selectGroup}>
             <label className={startDateErr ? styles.error : styles.selector}>Start Date</label>
             <DatePicker
@@ -100,7 +100,7 @@ class ContactForm extends Component {
           <div className={styles.formGroupRow}>
             <div className={styles.selectGroup}>
               <label>Communication Preference</label>
-              <select id='commPref' className={commPrefErr ? styles.errorL : styles.selectorL} name='commPref' onChange={handleChange} value={commPref}>
+              <select id='commPref' className={commPrefErr ? styles.errorL : styles.selectorL} name='commPref' onChange={handleChange} value={commPref || 'Select One'}>
                 <option className={styles.option}>Select One</option>
                 <option className={styles.option}>Call</option>
                 <option className={styles.option}>Text</option>
@@ -110,7 +110,7 @@ class ContactForm extends Component {
 
             <div className={styles.selectGroup}>
               <label>Best Time to Reach You</label>
-              <select className={timeToReachErr ? styles.error : styles.selectorR} name='timeToReach' onChange={handleChange} value={timeToReach}>
+              <select className={timeToReachErr ? styles.error : styles.selectorR} name='timeToReach' onChange={handleChange} value={timeToReach || 'Select One'}>
                 <option className={styles.option}>Select One</option>
                 <option className={styles.option}>Morning</option>
                 <option className={styles.option}>Afternoon</option>
@@ -165,6 +165,14 @@ export class ContactView extends Component {
 
   }
 
+
+  validateSelection(selection) {
+    if (selection === "Select One") {
+      return false;
+    } else {
+      return true;
+    }
+  }
   //validation for the form data so we don't send incomplete data to our client
   validateForm() {
     const {

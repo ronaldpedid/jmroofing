@@ -39,7 +39,7 @@ async function sendContactForm(req, res) {
     const newDate = truncateDate(req.body.startDate);
     console.log(req.body);
     const msg = {
-      to: 'elementfayt@gmail.com',
+      to: 'jmroofing93@live.com',
       from: req.body.email,
       subject: 'Request for Estimate',
       text: req.body.projectType,

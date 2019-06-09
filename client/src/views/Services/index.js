@@ -22,6 +22,8 @@ export class ServiceView extends Component {
 
   render() {
     console.log(this.state.residentialConData);
+    let newConQuote = 'We take great care in topping off any newly create home. Attention to detail will help turn a new house into a new home.';
+    let residentialConQuote = 'Helping you weather the storm is our passion. Getting you the best deals on repairs, additions, or a new roof. J & M Roofing is there when you need them.';
     return (
       <div>
         <section className={styles.serviceSection}>
@@ -42,14 +44,12 @@ export class ServiceView extends Component {
                   {this.state.newConstructionData.map((data, index) => (
                     <div key={`newc${index}`} className={styles.imgCell}>
                       <img className={styles.thumbnails} src={this.state.newConstructionData[index].url} alt={this.state.newConstructionData[index].alt} />
-                      <h1>{this.state.newConstructionData[index].header}</h1>
-                      <p>{this.state.newConstructionData[index].blurb}</p>
                     </div>
                   ))}
                 </div>
                 <h4 className={styles.serviceCopy}>
-                  Bacon ipsum dolor amet capicola pork chop strip steak burgdoggen beef ribs rump. Bacon filet mignon turkey, shoulder ham hock salami pork beef ribs t-bone sausage spare ribs hamburger alcatra flank.
-              </h4>
+                  {newConQuote}
+                </h4>
               </div>
               : ''}
             {this.state.viewToDisplay === 'Residential' ?
@@ -59,14 +59,12 @@ export class ServiceView extends Component {
                   {this.state.residentialConData.map((data, index) =>
                     (<div key={`res${index}`} className={styles.imgCell}>
                       <img className={styles.thumbnails} src={this.state.residentialConData[index].url} />
-                      <h1>{this.state.residentialConData[index].header}</h1>
-                      <p>{this.state.residentialConData[index].blurb}</p>
                     </div>
                     ))}
 
                 </div>
                 <h4 className={styles.serviceCopy}>
-                  Bacon ipsum dolor amet capicola pork chop strip steak burgdoggen beef ribs rump. Bacon filet mignon turkey, shoulder ham hock salami pork beef ribs t-bone sausage spare ribs hamburger alcatra flank.
+                  {residentialConQuote}
                 </h4>
               </div> : ''}
           </div>
