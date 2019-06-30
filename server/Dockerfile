@@ -5,3 +5,5 @@ COPY . /home/server
 WORKDIR /home/server
 
 RUN npm install
+
+CMD ['node', "./server.js"]
